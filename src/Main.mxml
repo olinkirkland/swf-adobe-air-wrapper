@@ -1,0 +1,71 @@
+<?xml version="1.0"?>
+<s:WindowedApplication xmlns:fx="http://ns.adobe.com/mxml/2009" xmlns:s="library://ns.adobe.com/flex/spark" showStatusBar="false"
+                       width="400" height="200" preinitialize="onPreinitialize(event)" creationComplete="onComplete(event)" frameRate="60">
+    <fx:Script><![CDATA[
+        import greensock.TweenLite;
+
+        import mx.core.UIComponent;
+
+        import mx.events.FlexEvent;
+
+        private var loader:Loader;
+
+        protected function onPreinitialize(event:FlexEvent):void {
+            // Center window on screen
+            visible = true;
+            center();
+        }
+
+        protected function center():void {
+            nativeWindow.x = (Capabilities.screenResolutionX - width) / 2;
+            nativeWindow.y = (Capabilities.screenResolutionY - height) / 2;
+        }
+
+        protected function onComplete(event:FlexEvent):void {
+            setTimeout(loadSwf, 2000);
+        }
+
+        private function loadSwf():void {
+            loader = new Loader();
+            var file:File = File.applicationDirectory.resolvePath("file.swf");
+            var url:URLRequest = new URLRequest(file.url);
+
+
+            var ui:UIComponent = new UIComponent();
+            addElement(ui);
+
+            SoundMixer.soundTransform = new SoundTransform(0);
+            loader.load(url);
+            loader.visible = false;
+
+            setTimeout(function ():void {
+                var w:int = loader.contentLoaderInfo.width;
+                var h:int = loader.contentLoaderInfo.height;
+                animateWindowToSize(w, h, onReady);
+                removeElement(splash);
+            }, 1000);
+
+            function onReady():void {
+                loader.unloadAndStop(true);
+                SoundMixer.soundTransform = new SoundTransform(1);
+                loader.load(url);
+                loader.visible = true;
+                ui.addChild(loader);
+            }
+        }
+
+        private function animateWindowToSize(w:int, h:int, onComplete:Function):void {
+            TweenLite.to(nativeWindow,
+                    0.3,
+                    {
+                        width: w,
+                        height: h,
+                        onUpdate: center,
+                        onComplete: onComplete
+                    });
+        }
+        ]]></fx:Script>
+    <s:VGroup id="splash" width="100%" height="100%" horizontalAlign="center" verticalAlign="middle">
+        <s:Label fontSize="32" text="https://olinkirk.land"/>
+    </s:VGroup>
+</s:WindowedApplication>
