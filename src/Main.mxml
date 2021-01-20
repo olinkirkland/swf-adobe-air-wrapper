@@ -12,7 +12,6 @@
 
         protected function onPreinitialize(event:FlexEvent):void {
             // Center window on screen
-            visible = true;
             center();
         }
 
@@ -39,9 +38,13 @@
             loader.visible = false;
 
             setTimeout(function ():void {
-                var w:int = loader.contentLoaderInfo.width;
-                var h:int = loader.contentLoaderInfo.height;
-                animateWindowToSize(w, h, onReady);
+                if (loader.contentLoaderInfo) {
+                    var w:int = loader.contentLoaderInfo.width;
+                    var h:int = loader.contentLoaderInfo.height;
+                    animateWindowToSize(w, h, onReady);
+                } else {
+                    onReady();
+                }
                 removeElement(splash);
             }, 1000);
 
