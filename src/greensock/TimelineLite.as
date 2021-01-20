@@ -5,9 +5,9 @@
  * UPDATES AND DOCS AT: http://www.greensock.com/timelinelite/
  **/
 package greensock {
-	import com.greensock.TweenLite;
-	import com.greensock.core.Animation;
-	import com.greensock.core.SimpleTimeline;
+	import greensock.TweenLite;
+	import greensock.core.Animation;
+	import greensock.core.SimpleTimeline;
 /**
  * TimelineLite is a powerful sequencing tool that acts as a container for tweens and 
  * other timelines, making it simple to control them as a whole and precisely manage their

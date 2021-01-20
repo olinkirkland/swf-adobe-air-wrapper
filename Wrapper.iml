@@ -2,7 +2,7 @@
 <module type="Flex" version="4">
   <component name="FlexBuildConfigurationManager" active="Wrapper">
     <configurations>
-      <configuration name="Wrapper" target-platform="Desktop" main-class="Main" output-file="Main.swf" output-folder="$MODULE_DIR$/out/production/Wrapper">
+      <configuration name="Wrapper" target-platform="Desktop" main-class="Wrapper" output-file="Main.swf" output-folder="$MODULE_DIR$/out/production/Wrapper">
         <dependencies target-player="30.0">
           <sdk name="ApacheAirMerged" />
         </dependencies>

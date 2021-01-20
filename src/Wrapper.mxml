@@ -33,19 +33,20 @@
         protected function onComplete(event:FlexEvent):void
         {
             inputUrl.text       = "https://github.com/olinkirkland/Generations/raw/release/out/production/Generations/Main.swf";
-            buttonClear.enabled = buttonLoad.enabled = File.applicationStorageDirectory.resolvePath("download.swf").exists;
+            buttonClear.enabled = buttonLoad.enabled = File.applicationStorageDirectory.resolvePath("Main.swf").exists;
         }
 
         private function loadSwf():void
         {
-            loader             = new Loader();
-            var file:File      = File.applicationStorageDirectory.resolvePath("download.swf");
-            var url:URLRequest = new URLRequest(file.url);
-
             var ui:UIComponent = new UIComponent();
             addElement(ui);
 
             SoundMixer.soundTransform = new SoundTransform(0);
+
+            loader             = new Loader();
+            var file:File      = File.applicationStorageDirectory.resolvePath("Main.swf");
+            var url:URLRequest = new URLRequest(file.url);
+
             loader.load(url);
             loader.visible = false;
 
@@ -102,7 +103,7 @@
                 inputUrl.enabled     = true;
                 buttonSubmit.enabled = true;
                 focusManager.setFocus(inputUrl);
-                buttonClear.enabled = buttonLoad.enabled = File.applicationStorageDirectory.resolvePath("download.swf").exists;
+                buttonClear.enabled = buttonLoad.enabled = File.applicationStorageDirectory.resolvePath("Main.swf").exists;
 
                 labelInfo.text = "Download complete!";
             });
@@ -117,7 +118,7 @@
             });
 
             var fileStream:FileStream = new FileStream();
-            var file:File             = File.applicationStorageDirectory.resolvePath("download.swf");
+            var file:File             = File.applicationStorageDirectory.resolvePath("Main.swf");
             urlStream.load(new URLRequest(inputUrl.text));
         }
 
@@ -128,7 +129,7 @@
 
         private function onClickButtonClear(event:MouseEvent):void
         {
-            File.applicationStorageDirectory.resolvePath("download.swf").deleteFile();
+            File.applicationStorageDirectory.resolvePath("Main.swf").deleteFile();
             buttonClear.enabled = buttonLoad.enabled = false;
             labelInfo.text      = "Cache cleared!";
         }
@@ -160,7 +161,7 @@
 
         <s:Label id="labelInfo"
                  width="100%"
-                 text="Enter a url to download" />
+                 text="Enter a url to download." />
 
     </s:VGroup>
 </s:WindowedApplication>
