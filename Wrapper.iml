@@ -7,7 +7,7 @@
           <sdk name="ApacheAirMerged" />
         </dependencies>
         <compiler-options />
-        <packaging-air-desktop use-generated-descriptor="false" custom-descriptor-path="$MODULE_DIR$/Main-app.xml" package-file-name="Main" />
+        <packaging-air-desktop use-generated-descriptor="false" custom-descriptor-path="$MODULE_DIR$/Main-app.xml" package-file-name="Wrapper" />
         <packaging-android />
         <packaging-ios />
       </configuration>
