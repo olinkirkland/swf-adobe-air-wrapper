@@ -21,16 +21,16 @@ package greensock.loading.data {
  * <p>Note that each method returns the CSSLoaderVars instance, so you can reduce the lines of code by method chaining (see example below).</p>
  *	
  * <p><strong>Without CSSLoaderVars:</strong></p><p><code>
- * new CSSLoader("styles.css", {name:"css", estimatedBytes:1500, onComplete:completeHandler, onProgress:progressHandler})</code></p>
+ * new CSSLoader("styles.assets.css", {name:"assets.css", estimatedBytes:1500, onComplete:completeHandler, onProgress:progressHandler})</code></p>
  * 
  * <p><strong>With CSSLoaderVars</strong></p><p><code>
- * new CSSLoader("styles.css", new CSSLoaderVars().name("css").estimatedBytes(1500).onComplete(completeHandler).onProgress(progressHandler))</code></p>
+ * new CSSLoader("styles.assets.css", new CSSLoaderVars().name("assets.css").estimatedBytes(1500).onComplete(completeHandler).onProgress(progressHandler))</code></p>
  * 
  * <p><strong>NOTES:</strong></p>
  * <ul>
  *	<li> To get the generic vars object that CSSLoaderVars builds internally, simply access its "vars" property.
  * 		 In fact, if you want maximum backwards compatibility, you can tack ".vars" onto the end of your chain like this:<br /><code>
- * 		 new CSSLoader("styles.css", new CSSLoaderVars().name("css").estimatedBytes(1500).vars);</code></li>
+ * 		 new CSSLoader("styles.assets.css", new CSSLoaderVars().name("assets.css").estimatedBytes(1500).vars);</code></li>
  *	<li> Using CSSLoaderVars is completely optional. If you prefer the shorter synatax with the generic Object, feel
  * 		 free to use it. The purpose of this class is simply to enable code hinting and to allow for strict data typing.</li>
  * </ul>

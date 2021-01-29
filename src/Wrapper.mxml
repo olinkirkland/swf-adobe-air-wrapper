@@ -7,8 +7,12 @@
                        preinitialize="onPreinitialize(event)"
                        creationComplete="onComplete(event)"
                        frameRate="60">
+
+    <fx:Style source="/css/global.css"/>
+
     <fx:Script><![CDATA[
         import mx.events.FlexEvent;
+        import mx.utils.UIDUtil;
 
         protected function onPreinitialize(event:FlexEvent):void {
             // Center window on screen
@@ -17,7 +21,7 @@
         }
 
         protected function onComplete(event:FlexEvent):void {
-            inputUrl.text = "https://github.com/olinkirkland/Generations/raw/release/out/production/Generations/Main.swf";
+            inputUrl.text = "https://github.com/olinkirkland/Generations/raw/release/out/production/Generations/Main.swf?" + UIDUtil.createUID();
             buttonClear.enabled = buttonRun.enabled = File.applicationStorageDirectory.resolvePath("Main.swf").exists;
             buttonDownload.enabled = !buttonClear.enabled;
             labelInfo.text = buttonRun.enabled ? "Click run to start" : "No local file";
@@ -51,7 +55,15 @@
                 } catch (error:Error) {
                     // No dimensions in loader
                 }
+
                 center();
+
+                trace("Fonts (" + Font.enumerateFonts().length + ")");
+                var fontList:Array = Font.enumerateFonts();
+                for( var i:int=0; i<fontList.length; i++ )
+                {
+                    trace( "font: " + fontList[ i ].fontName );
+                }
             });
         }
 

@@ -1,0 +1,18 @@
+@namespace s "library://ns.adobe.com/flex/spark";
+@namespace mx "library://ns.adobe.com/flex/mx";
+
+@font-face {
+    src: url("/fonts/OpenSans-Regular.ttf");
+    fontFamily: Body;
+    fontWeight: normal;
+    fontStyle: normal;
+    letterSpacing: 10;
+}
+
+@font-face {
+    src: url("/fonts/OpenSans-Bold.ttf");
+    fontFamily: Body;
+    fontWeight: bold;
+    fontStyle: normal;
+    letterSpacing: 10;
+}

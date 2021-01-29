@@ -21,7 +21,7 @@ package greensock.loading.data {
  * <p>Note that each method returns the XMLLoaderVars instance, so you can reduce the lines of code by method chaining (see example below).</p>
  *	
  * <p><strong>Without XMLLoaderVars:</strong></p><p><code>
- * new XMLLoader("data.xml", {name:"css", estimatedBytes:1500, onComplete:completeHandler, onProgress:progressHandler})</code></p>
+ * new XMLLoader("data.xml", {name:"assets.css", estimatedBytes:1500, onComplete:completeHandler, onProgress:progressHandler})</code></p>
  * 
  * <p><strong>With XMLLoaderVars</strong></p><p><code>
  * new XMLLoader("data.xml", new XMLLoaderVars().name("data").estimatedBytes(1500).onComplete(completeHandler).onProgress(progressHandler))</code></p>
